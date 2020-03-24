@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/header.hpp
+
+/home/simon/Cpp/VScode-memory-manager/memory_manager/src/main.cpp
+header.hpp
+/home/simon/Cpp/VScode-memory-manager/memory_manager/src/header.hpp
+

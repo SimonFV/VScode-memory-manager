@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/exe.dir/src/main.cpp.o  -o exe  -Wl,-rpath,/home/simon/Cpp/VScode-memory-manager/memory_manager/build lib_mem_manager.so 
