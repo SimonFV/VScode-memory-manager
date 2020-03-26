@@ -68,7 +68,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/simon/Cpp/VScode-memory-manager/memory_manager
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/simon/Cpp/VScode-memory-manager/memory_manager/build
+CMAKE_BINARY_DIR = /home/simon/Cpp/VScode-memory-manager/memory_manager
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -97,9 +97,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/simon/Cpp/VScode-memory-manager/memory_manager/build/CMakeFiles /home/simon/Cpp/VScode-memory-manager/memory_manager/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/simon/Cpp/VScode-memory-manager/memory_manager/CMakeFiles /home/simon/Cpp/VScode-memory-manager/memory_manager/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/simon/Cpp/VScode-memory-manager/memory_manager/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/simon/Cpp/VScode-memory-manager/memory_manager/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,60 +128,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named _mem_manager
+# Target rules for targets named mem_manager
 
 # Build rule for target.
-_mem_manager: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _mem_manager
-.PHONY : _mem_manager
+mem_manager: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mem_manager
+.PHONY : mem_manager
 
 # fast build rule for target.
-_mem_manager/fast:
-	$(MAKE) -f CMakeFiles/_mem_manager.dir/build.make CMakeFiles/_mem_manager.dir/build
-.PHONY : _mem_manager/fast
+mem_manager/fast:
+	$(MAKE) -f CMakeFiles/mem_manager.dir/build.make CMakeFiles/mem_manager.dir/build
+.PHONY : mem_manager/fast
 
-#=============================================================================
-# Target rules for targets named exe
+src/VSPtr.o: src/VSPtr.cpp.o
 
-# Build rule for target.
-exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 exe
-.PHONY : exe
-
-# fast build rule for target.
-exe/fast:
-	$(MAKE) -f CMakeFiles/exe.dir/build.make CMakeFiles/exe.dir/build
-.PHONY : exe/fast
-
-src/main.o: src/main.cpp.o
-
-.PHONY : src/main.o
+.PHONY : src/VSPtr.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/_mem_manager.dir/build.make CMakeFiles/_mem_manager.dir/src/main.cpp.o
-	$(MAKE) -f CMakeFiles/exe.dir/build.make CMakeFiles/exe.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/VSPtr.cpp.o:
+	$(MAKE) -f CMakeFiles/mem_manager.dir/build.make CMakeFiles/mem_manager.dir/src/VSPtr.cpp.o
+.PHONY : src/VSPtr.cpp.o
 
-src/main.i: src/main.cpp.i
+src/VSPtr.i: src/VSPtr.cpp.i
 
-.PHONY : src/main.i
+.PHONY : src/VSPtr.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/_mem_manager.dir/build.make CMakeFiles/_mem_manager.dir/src/main.cpp.i
-	$(MAKE) -f CMakeFiles/exe.dir/build.make CMakeFiles/exe.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/VSPtr.cpp.i:
+	$(MAKE) -f CMakeFiles/mem_manager.dir/build.make CMakeFiles/mem_manager.dir/src/VSPtr.cpp.i
+.PHONY : src/VSPtr.cpp.i
 
-src/main.s: src/main.cpp.s
+src/VSPtr.s: src/VSPtr.cpp.s
 
-.PHONY : src/main.s
+.PHONY : src/VSPtr.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/_mem_manager.dir/build.make CMakeFiles/_mem_manager.dir/src/main.cpp.s
-	$(MAKE) -f CMakeFiles/exe.dir/build.make CMakeFiles/exe.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/VSPtr.cpp.s:
+	$(MAKE) -f CMakeFiles/mem_manager.dir/build.make CMakeFiles/mem_manager.dir/src/VSPtr.cpp.s
+.PHONY : src/VSPtr.cpp.s
 
 # Help Target
 help:
@@ -191,11 +175,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... _mem_manager"
-	@echo "... exe"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... mem_manager"
+	@echo "... src/VSPtr.o"
+	@echo "... src/VSPtr.i"
+	@echo "... src/VSPtr.s"
 .PHONY : help
 
 
