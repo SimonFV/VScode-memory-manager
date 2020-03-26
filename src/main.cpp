@@ -3,7 +3,6 @@
 
 using namespace std;
 
-//tests
 int main(int arg, char* args[]){
     VSPtr<int> ptr(new int()); 
     *ptr = 20;
