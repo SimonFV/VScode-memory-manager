@@ -10,13 +10,11 @@ using namespace std;
 template <class T>
 class VSPtr{
 private:
-    VSPtr<T> *next;
     T* ptr;
     int ID;
 public:
     // Constructor
     VSPtr(T *p = NULL){
-        next = NULL;
         ptr = p;
     }
     // Destructor 

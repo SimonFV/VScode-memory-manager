@@ -1,5 +1,5 @@
-#include "VSPtr.hpp"
-#include "g_collector.hpp"
+#include <VSPtr.hpp>
+#include <g_collector.hpp>
 
 int id_num = 0;
 

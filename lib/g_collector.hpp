@@ -18,7 +18,7 @@ public:
     void run_inspection();
     void add_ptr(void *new_ptr);
 
-    friend class VSPtr;
+    friend class VSPrt;
 };
 
 g_collector *g_collector::gc_instance = nullptr;

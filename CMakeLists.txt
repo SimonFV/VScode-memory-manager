@@ -5,8 +5,7 @@ project(test)
 set(CMAKE_CXX_STANDARD_REQUIRED 14)
 
 set(SOURCES src/main.cpp)
-include_directories(${PROJECT_SOURCE_DIR}/memory_manager/include)
+include_directories(${PROJECT_SOURCE_DIR}/lib/)
 
 add_executable(test ${SOURCES})
-target_link_directories(test PUBLIC ${PROJECT_SOURCE_DIR}/memory_manager)
-target_link_libraries(test PUBLIC mem_manager)
+target_link_libraries(test ${PROJECT_SOURCE_DIR}/lib/libmem_manager.so)

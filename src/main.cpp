@@ -17,6 +17,7 @@ int main(int arg, char* args[]){
     ptr2 = ptr4;
 
     cout << *ptr2 << endl;
+    cout << *ptr << endl;
     
     return 0;
 }
