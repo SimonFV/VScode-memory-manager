@@ -4,8 +4,19 @@
 using namespace std;
 
 int main(int arg, char* args[]){
-    VSPtr<int> ptr(new int()); 
-    *ptr = 20;
-    cout << *ptr << endl; 
+
+
+    VSPtr<int> ptr = VSPtr<int>::New();
+    VSPtr<char> ptr2 = VSPtr<char>::New();
+    
+    VSPtr<string> ptr3 = VSPtr<string>::New();
+    VSPtr<char> ptr4 = VSPtr<char>::New();
+    ptr4 = '4';
+    ptr3 = "g";
+
+    ptr2 = ptr4;
+
+    cout << *ptr2 << endl;
+    
     return 0;
 }

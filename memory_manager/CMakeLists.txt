@@ -9,6 +9,7 @@ set(source
 )
 set(headers
     include/VSPtr.hpp
+    include/g_collector.hpp
 )
 
 add_library(mem_manager SHARED ${source} ${headers})
