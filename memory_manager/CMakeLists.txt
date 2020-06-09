@@ -6,11 +6,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED 14)
 
 set(source
     src/VSPtr.cpp
+    src/control.cpp
 )
 set(headers
     include/VSPtr.hpp
+    include/control.hpp
     include/g_collector.hpp
-    include/ptr_list.hpp
 )
 include_directories(${PROJECT_SOURCE_DIR}/include)
 

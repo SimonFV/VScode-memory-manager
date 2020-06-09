@@ -6,8 +6,8 @@
 class g_collector{
 private:
     static g_collector *gc_instance;
-    int *IDs = new int;
     g_collector(){}
+    ~g_collector(){}
 
 public:
     static g_collector *getInstance();
@@ -16,9 +16,7 @@ public:
 public:
     int generate_id();
     void run_inspection();
-    void add_ptr(void *new_ptr);
 
-    friend class VSPtr;
 };
 
 g_collector *g_collector::gc_instance = nullptr;

@@ -5,7 +5,6 @@ using namespace std;
 
 int main(int arg, char* args[]){
 
-
     VSPtr<int> ptr = VSPtr<int>::New();
     VSPtr<char> ptr2 = VSPtr<char>::New();
     
@@ -15,9 +14,7 @@ int main(int arg, char* args[]){
     ptr3 = "g";
 
     ptr2 = ptr4;
-
-    cout << *ptr2 << endl;
-    cout << *ptr << endl;
+    cout << ptr_map.find(1)->first << endl;
     
     return 0;
 }
