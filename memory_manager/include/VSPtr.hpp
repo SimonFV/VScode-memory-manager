@@ -3,45 +3,46 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <g_collector.hpp>
 #include <control.hpp>
+#include <g_collector.hpp>
+#include <counter.hpp>
 
 using namespace std;
 
-//dynamic inheritance to facilitate the use of regular VSPointers.
-class VSPtrI{
-public:
-    virtual ~VSPtrI(){}
-    virtual int getID(){}
-    virtual string getInfo(){}
-};
-
-static unordered_map<int, VSPtrI> ptr_map;
-
 template <typename T>
-class VSPtr: public VSPtrI{
+class VSPtr{
 private:
     T* ptr;
+    counter* count;
     int ID;
-    string info[] = {"int", "0x0002", "2"};
+    string info;
 
 public:
     // Constructor
     VSPtr(T *p = NULL){
         ptr = p;
+        count = new counter();
+        count->plus(1);
     }
+    
+    // Copy constructor
+    VSPtr(const VSPtr<T>& vsptr){
+        ptr = vsptr.ptr; 
+        count = vsptr.count; 
+        count->plus(1); 
+    }
+
     // Destructor 
     ~VSPtr(){
-        delete(ptr);
+        count->plus(-1);
     }
 
     //Creates new pointer
     static VSPtr<T> New(){
         VSPtr<T> temp = VSPtr(new T);
         temp.ID = g_collector::getInstance()->generate_id();
-        //start
-        cout << "given id: " << temp.ID << endl;
-        ptr_map[temp.ID] = temp;
+        BucketT<T>* b = new BucketT<T>(temp.count, temp.ptr);
+        g_collector::getInstance()->add_ptr(temp.ID, b);
         return temp;
     }
 
@@ -61,19 +62,12 @@ public:
     void operator =(VSPtr const &b){
         ptr = b.ptr;
         ID = b.ID;
+        count = b.count;
+        count->plus(1);
     }
 
     void operator =(T const &b){
         *ptr = b;
-    }
-
-    //Get information
-    string getInfo(){
-
-        return info;
-    }
-    int getID(){
-        return this->ID;
     }
 };
 

@@ -1,6 +1,10 @@
-#include <VSPtr.hpp>
-#include <g_collector.hpp>
 
+#include <VSPtr.hpp>
+#include <control.hpp>
+
+using namespace std;
+
+static unordered_map<int, Bucket*> ptr_map;
 static int id_num = 0;
 
 g_collector *g_collector::getInstance(){
@@ -16,5 +20,15 @@ int g_collector::generate_id(){
 }
 
 void g_collector::run_inspection(){
+    for (pair<int, Bucket*> element : ptr_map){
+        cout<< element.second->getCount()->get() <<endl;
+	    if(element.second->getCount()->get() == 0){
+            cout<< "deleting " << element.first << endl;
+            delete element.second;
+        }
+    }
+}
 
+void g_collector::add_ptr(int id, Bucket* b){
+    ptr_map[id] = b;
 }
