@@ -12,6 +12,7 @@ using namespace std;
 template <typename T>
 class VSPtr{
 private:
+    VSPtr<T>* old;
     T* ptr;
     counter* count;
     int ID;
@@ -20,6 +21,7 @@ private:
 public:
     // Constructor
     VSPtr(T *p = NULL){
+        old = this;
         ptr = p;
         count = new counter();
         count->plus(1);
@@ -27,6 +29,7 @@ public:
     
     // Copy constructor
     VSPtr(const VSPtr<T>& vsptr){
+        old = this;
         ptr = vsptr.ptr; 
         count = vsptr.count; 
         count->plus(1); 
@@ -60,6 +63,8 @@ public:
     }
 
     void operator =(VSPtr const &b){
+        old->count->plus(-1);
+        old = this;
         ptr = b.ptr;
         ID = b.ID;
         count = b.count;

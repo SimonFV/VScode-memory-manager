@@ -21,9 +21,9 @@ int g_collector::generate_id(){
 
 void g_collector::run_inspection(){
     for (pair<int, Bucket*> element : ptr_map){
-        cout<< element.second->getCount()->get() <<endl;
+        cout<<"(id "<< element.first << ") has: "<< element.second->getCount()->get() <<endl;
 	    if(element.second->getCount()->get() == 0){
-            cout<< "deleting " << element.first << endl;
+            cout<< "deleting (id " << element.first <<")"<< endl;
             delete element.second;
         }
     }
