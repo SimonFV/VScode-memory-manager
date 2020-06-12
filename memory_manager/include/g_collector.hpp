@@ -18,6 +18,7 @@ public:
     int generate_id();
     void run_inspection();
     void add_ptr(int id, Bucket* b);
+    void generate_data();
 
 };
 

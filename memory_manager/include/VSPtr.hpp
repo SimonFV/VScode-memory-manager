@@ -16,7 +16,6 @@ private:
     T* ptr;
     counter* count;
     int ID;
-    string info;
 
 public:
     // Constructor

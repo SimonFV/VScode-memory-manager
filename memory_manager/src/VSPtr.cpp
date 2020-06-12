@@ -32,3 +32,7 @@ void g_collector::run_inspection(){
 void g_collector::add_ptr(int id, Bucket* b){
     ptr_map[id] = b;
 }
+
+void g_collector::generate_data(){
+    cout<< "generating json file"<<endl;
+}
