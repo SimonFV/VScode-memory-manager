@@ -3,21 +3,14 @@
          "ID" : "3",
          "Tipo" : "bool*",
          "Valor" : "false",
-         "Ubicacion" : "0x55d93fa6cff0",
+         "Ubicacion" : "0x5572f07e0140",
          "Referencias" : "1"
-    },
-    {
-         "ID" : "1",
-         "Tipo" : "int*",
-         "Valor" : "0",
-         "Ubicacion" : "0x55d93fa6ce70",
-         "Referencias" : "0"
     },
     {
          "ID" : "2",
          "Tipo" : "int*",
          "Valor" : "3",
-         "Ubicacion" : "0x55d93fa6cf50",
+         "Ubicacion" : "0x5572f07e00a0",
          "Referencias" : "3"
     }
 ]

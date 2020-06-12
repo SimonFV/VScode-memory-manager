@@ -9,3 +9,7 @@ include_directories(${PROJECT_SOURCE_DIR}/memory_manager/include/)
 
 add_executable(test ${SOURCES})
 target_link_libraries(test ${PROJECT_SOURCE_DIR}/memory_manager/build/libmem_manager.so)
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(test Threads::Threads)

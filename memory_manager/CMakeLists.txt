@@ -17,3 +17,7 @@ set(headers
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 add_library(mem_manager SHARED ${source} ${headers})
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(mem_manager Threads::Threads)

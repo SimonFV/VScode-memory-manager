@@ -7,6 +7,8 @@
 #include <data_type.hpp>
 #include <sstream>
 #include <string>
+#include <thread>
+#include <unistd.h>
 
 using namespace std;
 
@@ -14,6 +16,15 @@ using namespace std;
 extern "C"{
     void make_json();
 }
+
+//Control of the thread for the garbage collector.
+static thread th;
+static bool key = false;
+void gc_loop();
+void g_collector_run();
+void g_collector_close();
+
+
 
 //Bucket class that stores the pointers information
 class Bucket{

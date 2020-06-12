@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 static unordered_map<int, Bucket*> ptr_map;
 static int id_num = 0;
 
@@ -20,12 +21,11 @@ int g_collector::generate_id(){
     return id_num;
 }
 
+//Checks for the pointers that have 0 VSPtrs pointing at them and deletes them.
 void g_collector::run_inspection(){
     for (pair<int, Bucket*> element : ptr_map){
-        cout<<"(id "<< element.first << ") has: "<< element.second->getCount()->get() <<endl;
 	    if(element.second->getCount()->get() == 0){
-            cout<< "deleting (id " << element.first <<")"<< endl;
-            delete element.second;
+            ptr_map.erase(element.first);
         }
     }
 }
@@ -89,7 +89,26 @@ void g_collector::generate_data(){
 
 }
 
-
+//Calls the garbage collector method that makes the JSON file for
+//the heap visualizer.
 void make_json(){
     g_collector::getInstance()->generate_data();
+}
+
+
+void gc_loop(){
+    while(key){
+        g_collector::getInstance()->run_inspection();
+        usleep(1000000);
+    }
+}
+
+void g_collector_run(){
+    key = true;
+    th = thread(gc_loop);
+}
+
+void g_collector_close(){
+    key = false;
+    th.join();
 }
