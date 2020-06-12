@@ -34,10 +34,6 @@ void g_collector::add_ptr(int id, Bucket* b){
     ptr_map[id] = b;
 }
 
-void make_json(){
-    
-}
-
 //Gets the data pointed by the pointer.
 string getData(Bucket* b){
     if(dynamic_cast<BucketT<int>*>(b) != nullptr){   
@@ -70,6 +66,7 @@ string getData(Bucket* b){
     }
 }
 
+//Generates a JSON file with the pointers information.
 void g_collector::generate_data(){
     ofstream myJson;
     myJson.open ("/home/simon/Cpp/VScode-memory-manager/memory_manager/src/ptr_data.json");
@@ -90,4 +87,9 @@ void g_collector::generate_data(){
     myJson << line;
     myJson.close();
 
+}
+
+
+void make_json(){
+    g_collector::getInstance()->generate_data();
 }
