@@ -6,7 +6,7 @@
 using namespace std;
 
 
-static unordered_map<int, Bucket*> ptr_map;
+static unordered_map<int, Bucket*> ptr_map; /*HashMap that saves the data of the pointers.*/
 static int id_num = 0;
 
 g_collector *g_collector::getInstance(){
@@ -21,7 +21,6 @@ int g_collector::generate_id(){
     return id_num;
 }
 
-//Checks for the pointers that have 0 VSPtrs pointing at them and deletes them.
 void g_collector::run_inspection(){
     for (pair<int, Bucket*> element : ptr_map){
 	    if(element.second->getCount()->get() == 0){
@@ -34,7 +33,6 @@ void g_collector::add_ptr(int id, Bucket* b){
     ptr_map[id] = b;
 }
 
-//Gets the data pointed by the pointer.
 string getData(Bucket* b){
     if(dynamic_cast<BucketT<int>*>(b) != nullptr){   
         BucketT<int>* temp = dynamic_cast<BucketT<int>*>(b);
@@ -66,7 +64,6 @@ string getData(Bucket* b){
     }
 }
 
-//Generates a JSON file with the pointers information.
 void g_collector::generate_data(){
     ofstream myJson;
     myJson.open ("/home/simon/Cpp/VScode-memory-manager/memory_manager/src/ptr_data.json");
@@ -89,8 +86,7 @@ void g_collector::generate_data(){
 
 }
 
-//Calls the garbage collector method that makes the JSON file for
-//the heap visualizer.
+
 void make_json(){
     g_collector::getInstance()->generate_data();
 }

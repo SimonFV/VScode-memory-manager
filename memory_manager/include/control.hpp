@@ -12,29 +12,60 @@
 
 using namespace std;
 
-//Functions utilized by the VS code extension
 extern "C"{
+    /**
+     * Function used by the VS code extension to generate a JSON file with the data.
+     */
     void make_json();
 }
 
-//Control of the thread for the garbage collector.
-static thread th;
-static bool key = false;
+static thread th; /* Thread for the garbage collector.*/
+static bool key = false; /* Bool to stop the thread of the garbage collector.*/
+
+/**
+ * Loop of the thread for the garbage collector.
+ * Keeps itself running on a while loop and calls the garbage collector every second.
+ */
 void gc_loop();
+
+/**
+ * Activates the thread of the garbage collector.
+ */
 void g_collector_run();
+
+/**
+ * Stops the thread of the garbage collector.
+ */
 void g_collector_close();
 
 
-
-//Bucket class that stores the pointers information
+/**
+ * Bucket interface class that stores the pointers information.
+ * It has some basic functions to work with the unknown type BucketTs.
+ */
 class Bucket{
 public:
     virtual ~Bucket(){}
+
+    /**
+     * @returns the counter state of the pointer.
+     */
     virtual counter* getCount(){}
+
+    /**
+     * @returns a string with the type of data of the stored pointer.
+     */
     virtual string getType(){}
+
+    /**
+     * @returns a string with the address of the pointer.
+     */
     virtual string getDir(){}
 };
 
+/**
+ * Bucket class that stores the pointers information.
+ */
 template <typename T>
 class BucketT: public Bucket{
 private:
@@ -42,17 +73,43 @@ private:
     T* ptr;
     string type;
 public:
+
+    /**
+     * @param c counter.
+     * @param p pointer.
+     */
     BucketT(counter* c, T* p){
         this->count = c;
         this->ptr = p;
     }
+
+    /**
+     * Destructor.
+     * Also deletes the pointer and its counter.
+     */
     ~BucketT(){
         delete(count);
         delete(ptr);
     }
+
+    /**
+     * @returns the actual pointer.
+     */
     T* getPtr(){return ptr;}
+
+    /**
+     * @returns the counter state of the pointer.
+     */
     counter* getCount(){return count;}
+
+    /**
+     * @returns a string with the type of data of the stored pointer.
+     */
     string getType(){return type_name<decltype(ptr)>();}
+
+    /**
+     * @returns a string with the address of the pointer.
+     */
     string getDir(){
         const void * address = static_cast<const void*>(ptr);
         stringstream ss;

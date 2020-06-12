@@ -11,7 +11,11 @@
 #include <string>
 #include <cstdlib>
 
-//Function that returns a string with the type of the data, by Howard Hinnant.
+/**
+ * Function that returns the type of the value.
+ * 
+ * @return string with the name of the type.
+ */
 template <typename T> std::string type_name(){
     typedef typename std::remove_reference<T>::type TR;
     std::unique_ptr<char, void(*)(void*)> own
