@@ -1,6 +1,7 @@
 
 #include <VSPtr.hpp>
 #include <control.hpp>
+#include <fstream>
 
 using namespace std;
 
@@ -33,6 +34,60 @@ void g_collector::add_ptr(int id, Bucket* b){
     ptr_map[id] = b;
 }
 
+void make_json(){
+    
+}
+
+//Gets the data pointed by the pointer.
+string getData(Bucket* b){
+    if(dynamic_cast<BucketT<int>*>(b) != nullptr){   
+        BucketT<int>* temp = dynamic_cast<BucketT<int>*>(b);
+        return to_string(*temp->getPtr());
+    }
+    else if(dynamic_cast<BucketT<float>*>(b) != nullptr){   
+        BucketT<float>* temp = dynamic_cast<BucketT<float>*>(b);
+        return to_string(*temp->getPtr());
+    }
+    else if(dynamic_cast<BucketT<double>*>(b) != nullptr){   
+        BucketT<double>* temp = dynamic_cast<BucketT<double>*>(b);
+        return to_string(*temp->getPtr());
+    }
+    else if(dynamic_cast<BucketT<bool>*>(b) != nullptr){   
+        BucketT<bool>* temp = dynamic_cast<BucketT<bool>*>(b);
+        return *temp->getPtr() ? "true" : "false";
+    }
+    else if(dynamic_cast<BucketT<char>*>(b) != nullptr){   
+        BucketT<char>* temp = dynamic_cast<BucketT<char>*>(b);
+        string s = "";
+        return s += *temp->getPtr();
+    }
+    else if(dynamic_cast<BucketT<string>*>(b) != nullptr){   
+        BucketT<string>* temp = dynamic_cast<BucketT<string>*>(b);
+        return *temp->getPtr();
+    }
+    else{
+        return "Unknown";
+    }
+}
+
 void g_collector::generate_data(){
-    cout<< "generating json file"<<endl;
+    ofstream myJson;
+    myJson.open ("/home/simon/Cpp/VScode-memory-manager/memory_manager/src/ptr_data.json");
+
+    string line = "[\n";
+    for (pair<int, Bucket*> element : ptr_map){
+        line += "    {\n";
+        line += "         \"ID\" : \"" + to_string(element.first) + "\",\n";
+        line += "         \"Tipo\" : \"" + element.second->getType() + "\",\n";
+        line += "         \"Valor\" : \"" + getData(element.second) + "\",\n";
+        line += "         \"Ubicacion\" : \"" + element.second->getDir() + "\",\n";
+	    line += "         \"Referencias\" : \"" + to_string(element.second->getCount()->get()) + "\"\n";
+        line += "    },\n";
+    }
+    line.pop_back();
+    line.pop_back();
+    line = line + "\n]";
+    myJson << line;
+    myJson.close();
+
 }

@@ -12,6 +12,7 @@ set(headers
     include/control.hpp
     include/counter.hpp
     include/g_collector.hpp
+    include/data_type.hpp
 )
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
