@@ -20,7 +20,7 @@ extern "C"{
     /**
      * Sends data to the server;
      */
-    string send_msg(string msg);
+    void save_user();
 }
 
 static thread th; /* Thread for the garbage collector.*/

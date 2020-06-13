@@ -137,12 +137,12 @@ void g_collector_run(){
         srv.assign( (istreambuf_iterator<char>(myJson) ),
                 (istreambuf_iterator<char>()    ) );
     myJson.close();
-    cout << srv<<endl;
-    if(srv == "1"){
+    if(srv.at(0) == '1'){
         string test = run_client();
         if(test == "error"){
             cout << "Server down, going back to local. " << endl;
         }else{
+            cout << "Connected to server. " << endl;
             server = 1;
         }
     }
@@ -233,4 +233,30 @@ string send_msg(string msg){
 
 void close_sock(){
     close(sock);
+}
+
+void save_user(){
+    string msg = "user,";
+
+    string iterator = "";
+    string srv;
+    ifstream myJson("/home/simon/Cpp/VScode-memory-manager/memory_manager/src/server.txt");
+        srv.assign( (istreambuf_iterator<char>(myJson) ),
+                (istreambuf_iterator<char>()    ) );
+    myJson.close();
+    int i = 2;
+    while(srv[i] != '\n'){
+        iterator = iterator + srv[i];
+        i++;
+    }
+    i++;
+    msg = msg + iterator + ",";
+    iterator = "";
+    while(srv[i] != '\n'){
+        iterator = iterator + srv[i];
+        i++;
+    }
+    msg = msg + iterator + ",";
+
+    send_msg(msg);
 }

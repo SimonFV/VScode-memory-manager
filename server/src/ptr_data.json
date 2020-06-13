@@ -1,16 +1,16 @@
 [
     {
          "ID" : "3",
-         "Tipo" : "bool",
-         "Valor" : "false",
-         "Ubicacion" : "0x55db1eb4f7e0",
-         "Referencias" : "1"
+         "Tipo" : "int",
+         "Valor" : "5",
+         "Ubicacion" : "0x55555576c780",
+         "Referencias" : "3"
     },
     {
-         "ID" : "2",
+         "ID" : "1",
          "Tipo" : "int",
-         "Valor" : "3",
-         "Ubicacion" : "0x55db1eb4f6e0",
-         "Referencias" : "3"
+         "Valor" : "0",
+         "Ubicacion" : "0x55555576c600",
+         "Referencias" : "0"
     }
 ]

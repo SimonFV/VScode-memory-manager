@@ -1,16 +1,37 @@
 [
     {
-         "ID" : "3",
+         "ID" : "5",
+         "Tipo" : "char",
+         "Valor" : "3",
+         "Ubicacion" : "0x55b3eed33950",
+         "Referencias" : "0"
+    },
+    {
+         "ID" : "4",
          "Tipo" : "bool",
-         "Valor" : "false",
-         "Ubicacion" : "0x558dd201d7f0",
-         "Referencias" : "1"
+         "Valor" : "true",
+         "Ubicacion" : "0x55b3eed316c0",
+         "Referencias" : "0"
+    },
+    {
+         "ID" : "3",
+         "Tipo" : "int",
+         "Valor" : "5",
+         "Ubicacion" : "0x55b3eed31780",
+         "Referencias" : "3"
+    },
+    {
+         "ID" : "1",
+         "Tipo" : "int",
+         "Valor" : "0",
+         "Ubicacion" : "0x55b3eed31600",
+         "Referencias" : "0"
     },
     {
          "ID" : "2",
          "Tipo" : "int",
-         "Valor" : "3",
-         "Ubicacion" : "0x558dd201b6e0",
-         "Referencias" : "3"
+         "Valor" : "0",
+         "Ubicacion" : "0x55b3eed316e0",
+         "Referencias" : "0"
     }
 ]
