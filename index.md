@@ -1,7 +1,7 @@
 ## Instituto Tecnológico de Costa Rica
 ## Área de Ingeniería en Computadores
 ## Algoritmos y Estructuras de Datos II
-## Primer Semestre 2015
+## Primer Semestre 2020
 ## Proyecto 1 - VS Code Memory Manager
 ### Estudiantes:
 ### Simón Fallas Villalobos (2019324313)
@@ -17,8 +17,11 @@
 El software desarrollado consiste en una extensión para Visual Studio Code que permite a los usuarios administrar la memoria dinámica de forma automática utilizando una clase especial de puntero. La biblioteca incluye un garbage collector que se ejecuta cada cierto tiempo en busca de punteros inutilizados y los elimina de forma automática, de esta forma se evitan los memory leaks.
 
 
-## Diagrama de Clases
+## Diagrama de blases de la biblioteca
 ![VS-mem-manager](https://user-images.githubusercontent.com/47420204/84465123-78e7fb00-ac33-11ea-8fbd-92b4327ca3c2.png)
+
+## Diagrama de arquitectura
+![Diagrama de arquitectura](https://user-images.githubusercontent.com/47420204/84560014-0fccba00-acfd-11ea-8f6f-58c05b2f78be.jpeg)
 
 ## Algoritmos y estructuras de datos utilizados
 ### Singleton
