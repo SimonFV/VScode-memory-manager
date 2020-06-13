@@ -17,7 +17,7 @@
 El software desarrollado consiste en una extensión para Visual Studio Code que permite a los usuarios administrar la memoria dinámica de forma automática utilizando una clase especial de puntero. La biblioteca incluye un garbage collector que se ejecuta cada cierto tiempo en busca de punteros inutilizados y los elimina de forma automática, de esta forma se evitan los memory leaks.
 
 
-## Diagrama de blases de la biblioteca
+## Diagrama de clases de la biblioteca
 ![VS-mem-manager](https://user-images.githubusercontent.com/47420204/84465123-78e7fb00-ac33-11ea-8fbd-92b4327ca3c2.png)
 
 ## Diagrama de arquitectura
