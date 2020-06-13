@@ -17,9 +17,6 @@ int main(int arg, char* args[]){
     ptr3 = 3;
 
     usleep(5000000);
-    
-    g_collector::getInstance()->generate_data();
-    
 
 
     g_collector_close();

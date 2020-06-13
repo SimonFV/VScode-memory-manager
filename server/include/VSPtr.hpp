@@ -6,7 +6,7 @@
 #include <control.hpp>
 #include <g_collector.hpp>
 #include <counter.hpp>
-#include <client.hpp>
+#include <server.hpp>
 
 using namespace std;
 
@@ -34,7 +34,7 @@ public:
         old = this;
         ptr = p;
         count = new counter();
-        count->plus(1);
+        count->plus(2);
     }
     
     /**
@@ -47,8 +47,7 @@ public:
         old = this;
         ptr = vsptr.ptr; 
         count = vsptr.count; 
-        count->plus(1);
-        g_collector::getInstance()->generate_data();
+        count->plus(1); 
     }
 
     /**
@@ -81,7 +80,6 @@ public:
      * @return Value pointed by the actual pointer.
      */
     T& operator *(){
-        g_collector::getInstance()->generate_data();
         return *ptr;
     }
 
@@ -91,7 +89,6 @@ public:
      * @return Actual pointer.
      */
     T* operator ->(){
-        g_collector::getInstance()->generate_data();
         return ptr;
     }
 
@@ -101,7 +98,6 @@ public:
      * @return Value pointed by the actual pointer.
      */
     T& operator &(){
-        g_collector::getInstance()->generate_data();
         return *ptr;
     }
 
@@ -117,7 +113,6 @@ public:
         ID = b.ID;
         count = b.count;
         count->plus(1);
-        g_collector::getInstance()->generate_data();
     }
 
     /**
@@ -127,7 +122,6 @@ public:
      */
     void operator =(T const &b){
         *ptr = b;
-        g_collector::getInstance()->generate_data();
     }
 };
 

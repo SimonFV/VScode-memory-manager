@@ -17,10 +17,6 @@ extern "C"{
      * Function used by the VS code extension to generate a JSON file with the data.
      */
     void make_json();
-    /**
-     * Sends data to the server;
-     */
-    string send_msg(string msg);
 }
 
 static thread th; /* Thread for the garbage collector.*/
@@ -41,6 +37,15 @@ void g_collector_run();
  * Stops the thread of the garbage collector.
  */
 void g_collector_close();
+
+//functions to get the pointer from the hashmap
+void find_ptr(int ID);
+string get_ptr_int(int ID);
+string get_ptr_float(int ID);
+string get_ptr_double(int ID);
+string get_ptr_bool(int ID);
+string get_ptr_char(int ID);
+string get_ptr_string(int ID);
 
 
 /**
